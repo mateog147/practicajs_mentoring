@@ -1,0 +1,17 @@
+#container{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: aqua;
+    padding: 10px 10% 0 10%;
+}
+
+.table{
+    width: 75%;
+    border: 1px solid black;
+}
+
+.table td{
+
+    border: 1px solid black;
+}
