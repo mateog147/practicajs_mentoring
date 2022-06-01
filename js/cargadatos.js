@@ -6,8 +6,7 @@ export const dataTable = () =>{
     const helloWorld = ()=>{
 
         console.log(tableData.rows.length)
-        let cell = tableData.rows[1].cells;
-        replaceAll();
+
     }
 
     const replaceAll =  (displayData) =>{
@@ -24,21 +23,40 @@ export const dataTable = () =>{
         }
     }
 
-    const orderByName = () =>{
-        let sortedData = data.sort((a, b)=>{
-            if(a.nombre < b.nombre ){
-                return -1;
-            }
-            if(a.nombre > b.nombre ){
-                return 1;
-            }
-    
-            return 0;
-        })
-    
-        console.log(sortedData);
-        replaceAll(sortedData);
+    const orderByName = async () =>{
+        try {
+            let sorted = await sortByName();
+            replaceAll(sorted)
+        } catch (error) {
+            console.error(error);
+        }
+        
 
+    
+        
+        return(sortedData);
+    }
+
+    const sortByName = () =>{
+        return new Promise((resolve, reject) =>{
+            if(true){
+                let sortedData = data.sort((a, b)=>{
+                    if(a.nombre < b.nombre ){
+                        return -1;
+                    }
+                    if(a.nombre > b.nombre ){
+                        return 1;
+                    }
+            
+                    return 0;
+                })
+                
+                resolve(sortedData);
+            }else{
+                reject(new Error('Test eroor'))
+            }
+            
+        });
     }
 
 
